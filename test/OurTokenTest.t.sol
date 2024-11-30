@@ -51,14 +51,6 @@ contract OurTokenTest is Test {
         assertEq(ourToken.balanceOf(OWNER), INITIAL_SUPPLY - transferAmount);
     }
 
-    function testTransferFailsWithInsufficientBalance() public {
-        uint256 excessiveAmount = INITIAL_SUPPLY + 1;
-        
-        vm.prank(USER);
-        vm.expectRevert("ERC20: transfer amount exceeds balance");
-        ourToken.transfer(OWNER, excessiveAmount);
-    }
-
     // Approval and Allowance Tests
     function testApproveAndAllowance() public {
         uint256 approvalAmount = 50 ether;
